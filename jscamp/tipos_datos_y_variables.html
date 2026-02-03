@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tipos de datos y variables</title>
+</head>
+
+<body>
+
+    <header>
+        <h1>Tipos de datos y variables</h1>
+    </header>
+
+    <main>
+
+        <script>
+
+            let nombre = 'Camilo';
+            let edad = 20;
+
+            console.log(`Hola, mi nombre es ${nombre} y tengo ${edad} años`);
+
+            nombre = 'Cam';
+            edad = 21;
+
+            const PI = 3.14159;
+            console.log(PI);
+
+
+            /* Función declarada */
+
+            function suma(a = 0, b = 0){
+                return a + b;
+            }
+
+            let resultados = suma(4,5);
+
+            console.log(resultados);
+
+
+            /* Función expresada */
+
+            const resta = function (a = 0, b = 0) {
+                console.log(`El resultado es ${a - b}`) ;
+                return a-b;
+            }
+
+            console.log(resta(4,2));
+
+
+            /* Existen funcionalidades que ya están creadas y que encuentro bastante útiles */
+
+            /* Confirm */
+            let confirmarValue = confirm('Quieres continuar viendo la página?');
+
+            alert('Cambio realizado satisfactoriamente'); /* Esta función unicamente informa, no guarda valores */
+
+            let promptValue = prompt('Danos tu opinión');
+
+            console.log(confirmarValue);
+            console.log(promptValue);
+
+            console.log(typeof confirmarValue, typeof promptValue);
+
+
+        </script>
+
+
+    </main>
+
+
+</body>
+
+</html>
