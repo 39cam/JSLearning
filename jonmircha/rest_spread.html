@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parametros Rest y operador de propagación</title>
+</head>
+
+<body>
+
+    <header>
+        <h1>REST y propagación</h1>
+    </header>
+
+    <main>
+
+        <script>
+
+            /* Existen ciertos casos en donde voy a necesitar crear una función con ciertos parámetros,
+            pero quizá en algún momento tenga que enviar un tercero, lo cual rompería todo, para eso,
+            es necesario agregar elementos en las funciones de la siguiente forma */
+
+
+            /* Parámetros REST */
+            function sumar(a, b, ...c) {
+
+                let resultado = a + b;
+
+                /* Lo que esto hace es validar la cantidad de n parámetros que han sido agregados extra */
+                c.forEach(function (n) { /* Esto suma la c en caso de que exista un tercer valor como parámetro */
+                    resultado += n;
+                })
+
+                return resultado;
+            }
+
+            console.log(sumar(1, 2));
+            console.log(sumar(1, 2, 3));  /* Lo recibe de igual forma, incluso puede tomar n parámetros para sumarlo */
+            console.log(sumar(1, 2, 3, 4, 5));
+            console.log('Rompe')
+
+
+            /* Operador de propagación - Spread */
+            const arreglo1 = [1, 2, 3, 4, 5];
+            const arreglo2 = [6, 7, 8, 9, 0];
+
+            console.log(arreglo1,arreglo2);
+            console.log('Rompe')
+
+            /* Suponiendo que debo crear un arreglo 3 a partir de estos otros arreglos... */
+
+            /* Normalmente se haría esto, pero me daría un arreglo de 2 posiciones con otros arreglos adentro */
+            const arreglo3 = [arreglo1,arreglo2];
+            console.log(arreglo3);
+            console.log('Rompe')
+
+            /* Pero eso no es lo que yo quiero, lo que yo deseo es que se junten los valores en un mismo arreglo */
+            /* Para eso uso el operador spread ... */
+            const arreglo4 = [...arreglo1,...arreglo2];
+            console.log(arreglo4);
+
+        </script>
+
+    </main>
+
+</body>
+
+</html>

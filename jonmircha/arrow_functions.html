@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arrow functions</title>
+</head>
+
+<body>
+
+    <header>
+        <h1>Arrow functions</h1>
+    </header>
+
+    <main>
+
+        <script>
+
+            /* Arrowfunctions
+            
+            Me es útil relacionada a funciones expresadas
+            
+            Ya no necesito tener esta estructura*/
+            const valorFuncion = function () {
+                console.log('hola');
+            }
+
+            /* Ahora tendré esta estructura, teniendo una función anónima */
+            const valorFunction = () => {
+                console.log('hola arrow');
+            }
+
+            let namePersona = 'Camilo';
+
+            /* Así recibe parámetros */
+            const saludoPersona = (nombre) => {
+                console.log('Hola ' + nombre);
+            }
+
+            /*  Incluso si solo se tiene un parámetro y es algo corto se puede dejar de esta manera:
+            Todo en una línea y sin corchetes ni paréntesis, pero solo al tener un parámetro */
+
+            /* Esta función es prácticamente un return explicito */
+            const saludoPersona2 = nombre => console.log('Hola ' + nombre);
+
+            const funcionVariasLineas = () => {
+                console.log('Uno');
+                console.log('Dos');
+                console.log('Tres');
+            }
+
+
+            /* Para foreach podemos también transformar la anterior forma en arrow functions */
+
+            const arroNum = [1, 4, 6, 8];
+
+            /* Forma anterior */
+            arroNum.forEach(function (valor, index) {
+                console.log('Posición: ' + index + ', Valor: ' + valor);
+            })
+
+            console.log('Rompe')
+
+            const arrowNums = [3, 6, 9, 0];
+
+            /* Forma nueva -> Aún manteniendo la forma de valor primero y luego indice */
+            arrowNums.forEach((element, index) => {
+                console.log('Posición: ' + index + ', Valor: ' + element);
+            });
+
+            arrowNums.forEach((element) => {
+                console.log(element);
+            })
+
+            arrowNums.forEach(element => console.log(element));
+
+
+
+            /* Contextos: Es importante hablar de los contextos, this
+            Esta es la forma en la que puedo dar contexto de ubicación, las arrowfunctions se saltan los contextos
+            y unicamente dan el contexto window que es el contexto general del programa, por lo que no siempre 
+            es buena práctica usar arrowfunctions, por ejemplo en los objetos */
+
+            const value = () => {
+                console.log(this); /* El contexto es window */
+            }
+            /* value(); */
+
+            /* Aunque el contexto de la función sea el objeto, la arrowfun se salta esto y el contexto es window*/
+            const perro = {
+                name: 'Bonny',
+                ladrar: () => {
+                    console.log(this);
+                }
+            }
+            perro.ladrar(); /* El contexto es window, la arrow se salta todo */
+
+
+            /* Por ende la mejor práctica a usar es utilizar la estructura que mostré anteriormente en funciones de
+            objetos */
+
+            const perro2 = {
+                nombre: 'Bonny',
+                ladrar2() {
+                    console.log(this);
+                }
+            }
+            perro2.ladrar2(); /* El contexto es el objeto, práctica recomendada para este tipo de casos y a 
+            tener en cuenta */
+
+        </script>
+
+    </main>
+
+</body>
+
+</html>
