@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clases</title>
+</head>
+
+<body>
+
+    <header>
+        <h1>Clases</h1>
+    </header>
+
+    <main>
+
+        <script>
+
+            /* Manejo del azucar sintáctica, escritura de 'clases', pero esto se pasa a prototipos, que es la base
+            fundamental de JS */
+
+            /* Las clases no reciben parámetros */
+            class Animal {
+
+                /* Constructor */
+                constructor(nombre, genero) {
+                    this.nombre = nombre;
+                    this.genero = genero;
+                }
+
+                /* Métodos, estos si pueden recibir parámetros en caso de necesitarlos y se pueden dejar adentro
+                de la clase, ya que la implementación  */
+                sonar() {
+                    console.log('Hago sonidos porque estoy vivo');
+                }
+
+                saludar() {
+                    console.log('Hola, me llamo ' + this.nombre);
+                }
+
+            }
+
+            const boni = new Animal('Bonny', 'Hembra'),
+                bens = new Animal('Bens', 'Hembra');
+
+            console.log(boni);
+            console.log(bens);
+
+            boni.sonar();
+            bens.saludar();
+
+        </script>
+
+    </main>
+
+</body>
+
+</html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Herencia prototípica</title>
+</head>
+
+<body>
+
+    <header>
+        <h1>Herencia prototípica</h1>
+    </header>
+
+    <main>
+
+        <script>
+
+            function Animal(nombre, genero) {
+                this.nombre = nombre;
+                this.genero = genero;
+            }
+
+            Animal.prototype.sonar = function () {
+                console.log('Hago ruido porque estoy vivo');
+            }
+
+            Animal.prototype.saludar = function () {
+                console.log('Hola, me llamo ' + this.nombre);
+            }
+
+            /* Esta forma también comete el error de clonar al elemento, implicando en consumo de memoria elevado
+             Por lo que tendría que */
+            function Perro(nombre, genero, tamanio) {
+                this.super = Animal;
+                this.super(nombre, genero);
+                this.tamanio = tamanio;
+            }
+
+            /* Perro heredando de animal */
+            Perro.prototype = new Animal();
+            Perro.prototype.constructor = Perro;
+
+            /* Sobre escritura de los métodos del padre */
+            Perro.prototype.sonar = function () {
+                console.log('Soy un perro, por lo tanto ladro');
+            }
+
+            /* Creación de métodos individuales de la instancia */
+            Perro.prototype.ladrar = function () {
+                console.log('Guau guau');
+            }
+
+            /* El objeto perro no está usando el método de su padre saludar, por tanto no aparece en consola
+
+            Además, los métodos del prototipo perro está añadiendo métodos por fuera, solo dejando internamente
+            las propiedades de este, esto con la finalidad de no duplicar internamente por cada objeto los 
+            métodos y ahorrando memoria*/
+
+            const Animalito = new Animal('NomAnimal', 'GenAnimal');
+            const Snoopy = new Perro('Snoopy', 'Macho', 'Pequenio');
+
+            console.log(Animalito);
+            console.log(Snoopy);
+
+            Snoopy.sonar(); /* Se dio la sobreescritura */
+            Animalito.sonar();
+
+            console.log('Corte');
+
+            Snoopy.saludar(); /* Se dio la sobreescritura */
+            Animalito.saludar();
+
+            console.log('Corte');
+
+            Snoopy.ladrar();
+
+            /* El estándar de 2015 modificó la forma de usar esto, ahora se tiene el azucar sintáctica de Clases
+            Pero esto es lo que se hace detrás de esas Clases y vale la pena entenderlo */
+
+        </script>
+
+    </main>
+
+</body>
+
+</html>

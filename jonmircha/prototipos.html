@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prototipos</title>
+</head>
+
+<body>
+
+    <header>
+        <h1>Prototipos</h1>
+    </header>
+
+    <main>
+
+        <script>
+
+            /* POO
+            Tiene 4 conceptos sumamente importantes
+            Clases: Un modelo a seguir para generar instancias; En el mundo de las ideas es la idea
+            Objetos: Instancia de una clase, copia de un modelo; En el mundo de las ideas es la representación física
+            Atributos: Variables dentro de un objeto, describe el objeto;
+            Métodos: Acciones que un método puede realizar; (Funciones dentro de un objeto);
+            */
+
+            /* JS aunque tiene clases, es nada más una forma de simplificar los prototipos, ya que JS si bien está
+            basado en objetos, está basado en prototipos, no en clases */
+
+            /* Gracias a las funciones prototipadas, los objetos son posibles en JS */
+
+            /* Estos son objetos literales */
+            const animal = {
+                name: 'Snoopy',
+                sonar() {
+                    console.log('Hago sonidos porque estoy vivo');
+                }
+            }
+
+            const animal2 = {
+                name: 'Lola Bunny',
+                sonar() {
+                    console.log('Hago sonidos porque estoy vivo');
+                }
+            }
+
+            console.log(animal);
+            console.log(animal2);
+
+            /* Tuve que crear manualmente los 2 objetos con las mismas cualidades, lo cual no es lo optimo */
+
+            /* Función constructora */
+            function Animal(nombre, genero) { /* La arranco con mayuscula por seguir la teoría de clases y objetos, clases manejan
+                la primera palabra en Mayus, de la forma MiFuncion */
+
+                /* Atributos */
+                this.nombre = nombre;
+                this.genero = genero;
+
+                /* Métodos */
+                this.sonar = function () {
+                    console.log('Hago sonidos porque estoy vivo');
+                }
+            }
+
+            const Snoopy = new Animal('Snoopy', 'Macho');
+            const LolaBunny = new Animal('Lola Bunny', 'Hembra');
+
+            console.log(Snoopy);
+            console.log(LolaBunny);
+
+            /* Lo que es recomendable es asignar los métodos a los prototipos por fuera de la función constructora
+            Esto se debe a que si tengo 100 objetos de tipo animal, entonces estaré creando 100 veces los métodos
+            que allí halla creado, por lo que afecta el rendimiento y debería hacerse así */
+
+            function Persona(nombre, genero) {
+                this.nombre = nombre;
+                this.genero = genero;
+            }
+
+            /* Métodos agregados al prototipo de la función constructora */
+
+            /* La forma correcta de asignar los métodos sin consumo exagerado de memória */
+            /* Estos métodos pertenecen unicamente al prototipo persona, no a cada persona que yo cree
+            Por lo que si no se usan no existen para la instancia de persona, pero si se usa el objeto, no tendrá
+            problema en usarlo */
+            Persona.prototype.saludar = function () {
+                console.log('Hola, mi nombre es ' + this.nombre);
+            }
+
+            Persona.prototype.sonar = () => console.log('Hago ruido porque estoy vivo');
+
+            const Camilo = new Persona('Camilo','Masculino');
+            const Natalia = new Persona('Natalia','Femenino');
+
+            console.log(Persona);
+            console.log(Camilo);
+            Camilo.saludar();
+            Natalia.sonar();
+            console.log(Natalia);
+
+        </script>
+
+    </main>
+
+</body>
+
+</html>
