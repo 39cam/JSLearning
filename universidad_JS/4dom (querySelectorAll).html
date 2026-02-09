@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>querySelectorAll</title>
+    <style>
+
+        .azul{
+            color: blue;
+        }
+
+    </style>
+</head>
+<body>
+
+    <h1>Hola, estoy usando querySelectorAll</h1>
+    <p>parrafo 1 clase azul</p>
+    <p>parrafo 2 clase azul</p>
+
+
+    <script>
+
+        let parrafosAzules = document.querySelectorAll('p.azul');
+
+        console.log(parrafosAzules);
+
+    </script>
+    
+</body>
+</html>

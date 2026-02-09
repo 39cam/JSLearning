@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GetElementsByClassName</title>
+
+    <style>
+        .azul {
+            color: blue;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Probando GetElementsByClassName</h1>
+
+    <p class='azul'>Hola parrafo 1</p>
+    <p class='azul'>Soy parrafo 2</p>
+    <p>Y yo el parrafo 3 pero no soy azul</p>
+
+    <script>
+
+        let parrafosAzules = document.getElementsByClassName('azul');
+
+        /* Solo debería tomar los 2 primeros parrafos */
+
+        console.log(parrafosAzules);
+
+        for(let i = 0; i<parrafosAzules.length; i++){
+            console.log(`Elemento #${i}: ${parrafosAzules[i].innerHTML}`);
+        }
+
+        /* Viendo la totalidad de elementos con dicha clase y recuperandolos
+        en lo que es una especie de arreglo con objeto primitivo HTMLCollection
+        luego de esto simplemente itero dicha arreglo y obtengo tanto el 
+        indice como el valor de lo que guarda el parrafo en la posición i */
+
+    </script>
+
+</body>
+
+</html>
