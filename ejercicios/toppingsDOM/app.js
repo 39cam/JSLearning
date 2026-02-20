@@ -148,3 +148,34 @@ encuentra dentro de la lista de clases que tiene el elemento 'segundo' de la lis
 
 /* Eliminar una clase del listado de clases */
 segundo.classList.remove('texto-negro'); /* Lo que hace que ya se elimine */
+
+
+/* Creación de elemtos de forma dinámica */
+
+/* Para poder agregarlo requiero tener una referencia del lugar en donde deseo insertarlo, en este caso mi lista */
+const listaReferencia = document.getElementById('lista');
+
+/* Elemento que deseo ingresar, en este caso, un nuevo topping (li) */
+const nuevoTopping = document.createElement('li');
+
+/* listaReferencia.append(nuevoTopping); */ /* Ya está insertado pero no tiene valores o atributos, 
+la mejor práctica es insertar previamente las propiedades y estilos deseados, de la siguiente manera  */
+
+nuevoTopping.classList.add('topping', 'fondo-cafe');
+nuevoTopping.innerText = 'Nuevo Topping ingresado';
+listaDeToppings.append(nuevoTopping);
+
+
+/* Eliminar elementos del DOM */
+
+nuevoTopping.remove() /* De esta forma elimino mi elemento */
+
+const primeroVer = document.querySelector('ul li');
+
+primeroVer.remove(); /* También estoy eliminando las aceitunas, que asco */
+
+/* La diferencia entre append y appendChild es que append me deja insertar cualquier tipo de cosa a mi referencia
+mientras que appendChild requiere que sea un elemento HTML */
+
+listaDeToppings.append('Hola'); /* Texto plano, no un elemento */
+listaDeToppings.appendChild(nuevoTopping); /* Elemento previamente creado y con propiedades asignadas */
