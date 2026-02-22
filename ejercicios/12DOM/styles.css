@@ -24,7 +24,7 @@ body {
     text-align: center;
     min-height: 60dvh; /* El height mínimo que ocupará el body es el 60% del viewport en sentido height */
     min-width: 35dvw /* El width mínimo que ocupará el body es el 35% del viewport en sentido width */;
-    
+
     border: 3px solid rgb(255, 113, 61);
     padding: clamp(1rem, 10vw, 2rem);
     gap: 1rem;
@@ -48,4 +48,12 @@ main {
 
 footer {
     font-weight: bold;
+}
+
+.clase-prueba{
+    color: red;
+}
+
+#probando-id{
+    color: green;
 }

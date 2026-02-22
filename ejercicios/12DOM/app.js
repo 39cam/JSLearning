@@ -21,3 +21,17 @@ const elementoCinco = document.createElement('li');
 elementoCinco.innerText = 'Ropa: Comprar y conocer';
 
 referencia.append(elementoCinco);
+
+/* Inserción de una clase */
+elementoCinco.classList.add('clase-prueba');
+
+/* Cambio de un id / inserción de un id */
+elementoUno.id = 'probando-id'
+
+const link = document.querySelector('a');
+
+console.log(link.hasAttribute('href')); /* Tiene atributo href */
+link.removeAttribute('href');
+console.log(link.hasAttribute('href')); /* Ya no tiene atributo href */
+link.setAttribute('href','http://youtube.com'); /* El valor se actualiza al link de Youtube */
+console.log(link.hasAttributes());
