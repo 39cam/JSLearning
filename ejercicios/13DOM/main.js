@@ -81,3 +81,19 @@ decimo.append(elemento5);
 const once = document.getElementById('once');
 console.log(once.childNodes); /* Estoy retornando nodos (prácticamente todo lo que está dentro de la caja once) */ 
 console.log(once.children); /* Estoy retornando elementos */
+
+const finalfinal = document.getElementById('dosdos');
+console.log(finalfinal.nextSibling); /* Retorna: Un salto de línea debido a que busca hermanos, no hijos,
+y precisamente lo que va despúes del elemento de id 'dos' es un salto de línea que es contado antes del 
+siguiente elemento con texto 'tres' */
+console.log(finalfinal.nextElementSibling); /* Retorna:  */
+
+/* Existe otra forma de buscar hermanos que es previousSibling y previousElementSibling
+Obviamente teniedo que:
+
+previousSibling está dado para nodos y (Cualquier tipo de contenido incluso no visible para el desarrollador que
+esté al mismo nivel, ya que estamos hablando de hermanos)
+
+previousElementSibling está dado para elementos (Etiquetas manejadas de HTML que estén al mismo nivel en la
+estructura semántica) 
+*/
